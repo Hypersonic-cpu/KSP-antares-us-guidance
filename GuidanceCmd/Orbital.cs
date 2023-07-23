@@ -30,7 +30,11 @@ namespace GuidanceCmd
             this.pathAngle = pathAngle;
         }
 
-        public Tuple<double, double, double, double>
+        /// <summary>
+        /// Current orbit information.
+        /// </summary>
+        /// <returns>Ap Height, Pe Height.</returns>
+        public Tuple<double, double>
             OrbitInfo()
         {
             double
@@ -39,7 +43,7 @@ namespace GuidanceCmd
                 ecc = Math.Sqrt(1 - var1 * var1 / GM / semiMaj),
                 ap = semiMaj * (1 + ecc),
                 pe = semiMaj * (1 - ecc);
-            return Tuple.Create(semiMaj, ecc, ap - R0, pe - R0);
+            return Tuple.Create(ap - R0, pe - R0);
         }
 
         public double GFieldStrength()

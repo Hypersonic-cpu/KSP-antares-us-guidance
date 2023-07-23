@@ -11,14 +11,14 @@ namespace GuidanceCmd
             MAX_ANGLE_RATE = Equ.Rad(7);        // per second
 
         public const double
-            FAIRING_JET_HEIGHT = 104500,
+            FAIRING_JET_HEIGHT = 112500,
             V_EXC_BEFORE_IGN = 480,
 
             T_ENGM = 115,
             T_TOT = 174.4,
-            T_ENGM_RESV = 45,
-            V_ENGM_END = 15,
-            SIMULATE_DT = 0.02;
+            T_ENGM_RESV = 45.0,
+            V_ENGM_END = 6.4,
+            SIMULATE_DT = 0.020;
 
         public const int 
             LOOP_SLEEP_T = 200;                 // ms
@@ -274,7 +274,7 @@ namespace GuidanceCmd
             if (absRate > MAX_ANGLE_RATE)
             {
                 newPitch = pitch + angleRate / absRate * 2 * MAX_ANGLE_RATE * delta_t;
-                Console.WriteLine("\t\t\t\t(Max angle rate limit)");
+                // Console.WriteLine("\t\t\t\t(Max angle rate limit)");
             }
             
             newPitch = Math.Max(newPitch, -MAXAOA + obt.pathAngle);
@@ -329,7 +329,7 @@ namespace GuidanceCmd
             {
                 angle = Math.Acos(vari);
                 angle = Math.Min(MAX_ENGM_AOA, angle);
-                Console.Write($"EM {Math.Round(Equ.Deg(angle), 3)}\t");
+                // Console.Write($"EM {Math.Round(Equ.Deg(angle), 3)}\t");
                 return angle;
             }
             return MAX_ENGM_AOA;

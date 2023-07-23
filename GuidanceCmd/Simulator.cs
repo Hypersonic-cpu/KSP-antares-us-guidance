@@ -1,6 +1,6 @@
 ﻿namespace GuidanceCmd
 {
-    public class Simulator
+    public class Simulator 
     {
         protected VehicleS flt {get; private set;}
         protected Orbital final { get; private set;}
@@ -27,7 +27,7 @@
         }
 
         /// <summary>
-        /// Calculate terminal speed. [Caution] flight parameters will change.
+        /// Calculate terminal speed. [Caution] Side Effect: flight parameters will change.
         /// </summary>
         /// <returns>(double) Terminal speed</returns>
         public double TerminalVelocity()
@@ -38,7 +38,6 @@
             {
                 flt.CommandInput();
             }
-            
             return flt.obt.velocity;
         }
     } // class Simulator
